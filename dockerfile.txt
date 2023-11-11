@@ -1,0 +1,14 @@
+FROM python:3.11
+
+# Définissez le répertoire de travail
+WORKDIR C:\Users\Session\PycharmProjects\pythonProject1\app.py
+
+# Installez les dépendances
+RUN pip install -r requirements.txt
+
+# Installation de l'application 
+COPY app.py /
+
+# configuration finale
+EXPOSE 80
+CMD app run --host 0.0.0.0 --port 80
