@@ -17,13 +17,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build an image from Dockerfile
-        run: |
-          docker build -t docker.io/ue19_labo09-10/dockerfile/my-app:${{ github.sha }} .
+        run: | 
+          docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
+          image-ref: 'docker.io/xxfuronix/ue19_labo09-10/:main'
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
